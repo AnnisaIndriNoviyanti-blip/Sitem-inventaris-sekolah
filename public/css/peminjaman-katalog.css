@@ -1,0 +1,619 @@
+
+/* =====================================================
+   SISKO - KATALOG BARANG TU
+   Tema: Forest Green, Sage, Warm Cream
+   ===================================================== */
+
+:root {
+    --katalog-green: #2d684f;
+    --katalog-green-dark: #24563f;
+    --katalog-green-light: #e7f1eb;
+    --katalog-sage: #a8c1b2;
+    --katalog-cream: #faf9f6;
+    --katalog-text: #263342;
+    --katalog-muted: #78869a;
+    --katalog-border: #e0e8e3;
+    --katalog-gold: #d5a638;
+}
+
+/* =====================================================
+   1. HALAMAN UTAMA
+   ===================================================== */
+
+.katalog-content {
+    padding: 42px 40px 45px;
+    background: var(--katalog-cream);
+    min-height: calc(100vh - 70px);
+}
+
+.katalog-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 38px;
+}
+
+.katalog-heading > div {
+    flex: 1;
+}
+
+.katalog-heading .kelas-eyebrow {
+    color: var(--katalog-green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.katalog-heading h1 {
+    margin: 10px 0 8px;
+    color: var(--katalog-text);
+    font: 700 36px "Playfair Display", serif;
+}
+
+.katalog-heading p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--katalog-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Jumlah barang */
+
+.katalog-total {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 8px 14px;
+    border: 1px solid #cddfd2;
+    border-radius: 30px;
+    background: var(--katalog-green-light);
+    color: var(--katalog-green-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+/* =====================================================
+   2. FILTER DAN PENCARIAN
+   ===================================================== */
+
+.katalog-filter {
+    display: grid;
+    grid-template-columns:
+        minmax(200px, 1fr)
+        200px
+        auto
+        auto;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    border: 1px solid var(--katalog-border);
+    border-radius: 19px;
+    box-shadow: 0 5px 18px rgba(35, 60, 45, .04);
+}
+
+/* Input pencarian */
+
+.katalog-search {
+    min-width: 0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 13px;
+    border: 1px solid #dce4e8;
+    border-radius: 25px;
+    background: #fff;
+    transition: .2s;
+}
+
+.katalog-search:focus-within {
+    border-color: var(--katalog-green);
+    box-shadow: 0 0 0 3px rgba(45, 104, 79, .08);
+}
+
+.katalog-search > span {
+    color: var(--katalog-muted);
+    font-size: 21px;
+}
+
+.katalog-search input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--katalog-text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+}
+
+.katalog-search input::placeholder {
+    color: #8795a8;
+}
+
+/* Dropdown kategori */
+
+.katalog-filter select {
+    width: 100%;
+    height: 45px;
+    padding: 0 14px;
+    border: 1px solid #dce4e8;
+    border-radius: 24px;
+    outline: none;
+    background: #fff;
+    color: var(--katalog-text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.katalog-filter select:focus {
+    border-color: var(--katalog-green);
+}
+
+/* Toggle tersedia */
+
+.katalog-toggle {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 13px;
+    border: 1px solid #e0e8e3;
+    border-radius: 25px;
+    color: var(--katalog-text);
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.katalog-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toggle-track {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #dce4e8;
+    transition: .2s;
+}
+
+.toggle-track::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    background: white;
+    transition: .2s;
+}
+
+.katalog-toggle input:checked + .toggle-track {
+    background: var(--katalog-green);
+}
+
+.katalog-toggle input:checked + .toggle-track::before {
+    transform: translateX(18px);
+}
+
+/* Tombol filter */
+
+.filter-submit {
+    min-height: 43px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 24px;
+    background: var(--katalog-green);
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.filter-submit:hover {
+    background: var(--katalog-green-dark);
+}
+
+/* Informasi hasil pencarian */
+
+.katalog-result-note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -12px 0 20px;
+    color: var(--katalog-muted);
+    font-size: 12px;
+}
+
+.katalog-result-note a {
+    color: var(--katalog-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* =====================================================
+   3. GRID KARTU BARANG
+   ===================================================== */
+
+.katalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+/* Kartu */
+
+.katalog-card {
+    min-width: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--katalog-border);
+    border-radius: 19px;
+    box-shadow: 0 5px 18px rgba(35, 60, 45, .045);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.katalog-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(35, 60, 45, .09);
+}
+
+/* Identitas barang */
+
+.katalog-card-top {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.katalog-item-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--katalog-green-light);
+    color: var(--katalog-green);
+    font-size: 21px;
+}
+
+.katalog-item-title {
+    min-width: 0;
+}
+
+.katalog-item-title h2 {
+    margin: 0 0 5px;
+    color: var(--katalog-text);
+    font: 700 16px "Playfair Display", serif;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.katalog-item-title > span {
+    color: var(--katalog-muted);
+    font-size: 11px;
+}
+
+/* =====================================================
+   4. INFORMASI STOK
+   ===================================================== */
+
+.katalog-stock {
+    margin-bottom: 17px;
+}
+
+.stock-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 9px;
+    color: var(--katalog-muted);
+    font-size: 12px;
+}
+
+.stock-label strong {
+    color: var(--katalog-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stock-track {
+    width: 100%;
+    height: 6px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #eeeae4;
+}
+
+.stock-active {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: var(--katalog-green);
+}
+
+.stock-inactive {
+    display: block;
+    width: 35%;
+    height: 100%;
+    border-radius: 10px;
+    background: #b7c2bb;
+}
+
+/* =====================================================
+   5. BADGE STATUS DAN KATEGORI
+   ===================================================== */
+
+.katalog-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 17px;
+}
+
+.availability-badge,
+.category-badge {
+    min-height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+
+.availability-badge.available {
+    border: 1px solid #bfdfce;
+    background: #e6f3eb;
+    color: #278052;
+}
+
+.availability-badge.unavailable {
+    border: 1px solid #ead3c9;
+    background: #f4eae4;
+    color: #9b6549;
+}
+
+.category-badge {
+    border: 1px solid #e7d7c9;
+    background: #f3ebe4;
+    color: #896447;
+}
+
+/* =====================================================
+   6. SPESIFIKASI DAN KONDISI
+   ===================================================== */
+
+.katalog-spec {
+    min-height: 35px;
+    margin: 0 0 14px;
+    color: var(--katalog-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.katalog-spec.muted {
+    color: #a2aab2;
+    font-style: italic;
+}
+
+.katalog-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: auto;
+}
+
+.condition-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--katalog-muted);
+    font-size: 11px;
+}
+
+.condition-label strong {
+    color: var(--katalog-text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   7. TOMBOL AJUKAN PEMINJAMAN
+   ===================================================== */
+
+.katalog-action {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 24px;
+    background: var(--katalog-green);
+    color: #fff;
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.katalog-action:hover {
+    background: var(--katalog-green-dark);
+    color: #fff;
+}
+
+.katalog-action.disabled {
+    background: #a9beb2;
+    color: #fff;
+    opacity: .8;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   8. KATALOG KOSONG
+   ===================================================== */
+
+.katalog-empty {
+    grid-column: 1 / -1;
+    padding: 55px 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px dashed #cbd9d0;
+    border-radius: 18px;
+}
+
+.katalog-empty > div {
+    margin-bottom: 12px;
+    color: var(--katalog-green);
+    font-size: 35px;
+}
+
+.katalog-empty h2 {
+    margin: 0 0 8px;
+    color: var(--katalog-text);
+    font: 700 21px "Playfair Display", serif;
+}
+
+.katalog-empty p {
+    color: var(--katalog-muted);
+    font-size: 13px;
+}
+
+.katalog-empty a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--katalog-green);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* =====================================================
+   9. PAGINATION
+   ===================================================== */
+
+.katalog-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.katalog-pagination nav {
+    display: flex;
+    justify-content: center;
+}
+
+.katalog-pagination svg {
+    width: 16px;
+    height: 16px;
+}
+
+.katalog-pagination a,
+.katalog-pagination span {
+    font-size: 12px;
+}
+
+/* =====================================================
+   10. RESPONSIVE TABLET
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .katalog-content {
+        padding: 30px 25px;
+    }
+
+    .katalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .katalog-filter {
+        grid-template-columns: minmax(180px, 1fr) 180px;
+    }
+
+}
+
+/* =====================================================
+   11. RESPONSIVE HP
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .katalog-content {
+        padding: 25px 16px;
+    }
+
+    .katalog-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .katalog-heading h1 {
+        font-size: 28px;
+    }
+
+    .katalog-heading p {
+        font-size: 12px;
+    }
+
+    .katalog-filter {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .katalog-toggle {
+        justify-content: flex-start;
+    }
+
+    .katalog-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .katalog-card {
+        padding: 17px;
+    }
+
+    .katalog-item-title h2 {
+        font-size: 15px;
+    }
+
+}

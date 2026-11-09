@@ -1,0 +1,478 @@
+
+/* INVENTARIS BARANG SISKO */
+
+.barang-stats {
+    margin-bottom: 26px;
+}
+
+.inventory-panel {
+    overflow: hidden;
+    min-width: 0;
+}
+
+.inventory-header {
+    padding: 24px 26px;
+    align-items: center;
+}
+
+.inventory-header h2 {
+    margin: 0 0 7px;
+    font-size: 19px;
+}
+
+.inventory-header p {
+    margin: 0;
+    color: #7c8491;
+    font-size: 13px;
+}
+
+.inventory-count {
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: #f0f6f2;
+    color: #26734d;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.inventory-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.inventory-table th {
+    padding: 15px 16px;
+    background: #f8faf9;
+    color: #737d79;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    border-top: 1px solid #edf0ee;
+    border-bottom: 1px solid #edf0ee;
+}
+
+.inventory-table td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #edf0ee;
+    color: #424b47;
+    vertical-align: middle;
+}
+
+.inventory-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.inventory-table tbody tr:hover {
+    background: #fbfdfb;
+}
+
+.item-code {
+    font-weight: 700;
+    color: #397354;
+    white-space: nowrap;
+}
+
+.item-name {
+    min-width: 145px;
+    font-weight: 600;
+    color: #28372f !important;
+}
+
+.item-spec {
+    min-width: 160px;
+    max-width: 240px;
+    line-height: 1.6;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pill-good {
+    background: #e8f6ed;
+    color: #267347;
+}
+
+.pill-warning {
+    background: #fff4d9;
+    color: #946400;
+}
+
+.pill-danger {
+    background: #fde9e7;
+    color: #b43b35;
+}
+
+.pill-neutral {
+    background: #edf0f2;
+    color: #626d77;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-buttons form {
+    margin: 0;
+}
+
+.action-edit,
+.action-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.action-edit {
+    background: #eaf4ee;
+    color: #26734d;
+}
+
+.action-edit:hover {
+    background: #d9ecdf;
+}
+
+.action-delete {
+    background: #fff0ef;
+    color: #b43b35;
+}
+
+.action-delete:hover {
+    background: #fbdedb;
+}
+
+.inventory-empty {
+    padding: 48px 20px;
+    text-align: center;
+}
+
+.inventory-empty > span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 32px;
+    color: #8cae98;
+}
+
+.inventory-empty strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #35443a;
+    font-size: 16px;
+}
+
+.inventory-empty p {
+    margin: 0 0 20px;
+    color: #7c8491;
+    font-size: 13px;
+}
+
+.alert-success,
+.alert-error {
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    border-radius: 9px;
+    font-size: 13px;
+}
+
+.alert-success {
+    background: #e8f6ed;
+    color: #267347;
+}
+
+.alert-error {
+    background: #fff0ef;
+    color: #b43b35;
+}
+
+.alert-error ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.inventory-pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 18px 24px;
+    border-top: 1px solid #edf0ee;
+}
+
+@media (max-width: 768px) {
+    .inventory-header {
+        padding: 18px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .inventory-table {
+        min-width: 1000px;
+    }
+
+    .inventory-pagination {
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .action-buttons {
+        gap: 5px;
+    }
+}
+
+/* ===== MODAL EDIT BARANG ===== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.22s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 26px 28px 22px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.modal-eyebrow {
+    display: block;
+    margin-bottom: 7px;
+    color: #39815a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #203b2b;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+}
+
+.modal-header p {
+    margin: 8px 0 0;
+    color: #778178;
+    font-size: 13px;
+}
+
+.modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    background: #f2f5f2;
+    color: #526357;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: #e4ebe5;
+    color: #203b2b;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px 28px;
+}
+
+.modal-body .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+}
+
+.modal-body .form-group label {
+    color: #34483a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dce4dd;
+    border-radius: 10px;
+    background: #fbfcfb;
+    color: #26372b;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    border-color: #43865e;
+    box-shadow: 0 0 0 3px rgba(67, 134, 94, 0.12);
+    background: #ffffff;
+}
+
+.modal-body textarea {
+    resize: vertical;
+}
+
+.modal-body .form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 18px 28px 24px;
+    border-top: 1px solid #edf0ed;
+}
+
+.modal-cancel,
+.modal-save {
+    padding: 12px 18px;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-cancel {
+    border: 1px solid #dce4dd;
+    background: #ffffff;
+    color: #526357;
+}
+
+.modal-cancel:hover {
+    background: #f4f7f4;
+}
+
+.modal-save {
+    border: 1px solid #32734b;
+    background: #32734b;
+    color: #ffffff;
+}
+
+.modal-save:hover {
+    background: #265d3b;
+}
+
+.action-edit {
+    cursor: pointer;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .modal-overlay {
+        padding: 12px;
+        align-items: center;
+    }
+
+    .modal-card {
+        max-height: 94vh;
+        border-radius: 14px;
+    }
+
+    .modal-header {
+        padding: 22px 20px 18px;
+    }
+
+    .modal-header h2 {
+        font-size: 22px;
+    }
+
+    .modal-body {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .modal-body .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .modal-footer {
+        padding: 16px 20px 20px;
+    }
+
+    .modal-cancel,
+    .modal-save {
+        padding: 11px 13px;
+    }
+}

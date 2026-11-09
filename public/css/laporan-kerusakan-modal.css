@@ -1,0 +1,154 @@
+
+.damage-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, .58);
+    backdrop-filter: blur(4px);
+}
+
+.damage-modal-overlay.open {
+    display: flex;
+}
+
+.damage-modal {
+    width: min(100%, 620px);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, .22);
+    animation: damageModalIn .2s ease-out;
+}
+
+.damage-modal-body {
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+}
+
+.damage-field {
+    display: grid;
+    gap: 8px;
+}
+
+.damage-field label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #253047;
+}
+
+.damage-field input,
+.damage-field select,
+.damage-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dce2eb;
+    border-radius: 10px;
+    background: #fff;
+    color: #253047;
+    font: inherit;
+    font-size: 13px;
+}
+
+.damage-field input:focus,
+.damage-field select:focus,
+.damage-field textarea:focus {
+    outline: none;
+    border-color: #b68b42;
+    box-shadow: 0 0 0 3px rgba(182, 139, 66, .12);
+}
+
+.damage-field textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.damage-field small {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #718096;
+}
+
+.damage-info-box {
+    padding: 15px;
+    border-radius: 12px;
+    background: #f6f8fb;
+    border: 1px solid #e7ebf2;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.damage-info-box strong {
+    display: block;
+    color: #253047;
+    margin-bottom: 5px;
+}
+
+.damage-info-box p {
+    margin: 0 0 5px;
+    color: #526078;
+}
+
+.damage-info-box small {
+    color: #718096;
+}
+
+.damage-submit-button {
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #b68b42;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.damage-submit-button:hover {
+    background: #997133;
+}
+
+.damage-open-button {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+body.damage-modal-open {
+    overflow: hidden;
+}
+
+@keyframes damageModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .damage-modal-overlay {
+        padding: 10px;
+    }
+
+    .damage-modal {
+        max-height: 95vh;
+        border-radius: 15px;
+    }
+
+    .damage-modal-body {
+        padding: 18px;
+    }
+
+    .damage-modal .detail-modal-footer {
+        flex-wrap: wrap;
+    }
+}

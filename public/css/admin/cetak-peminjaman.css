@@ -1,0 +1,148 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background: #f5f6f2;
+    color: #26382e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.print-toolbar {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+}
+
+.print-toolbar a,
+.print-toolbar button {
+    padding: 10px 16px;
+    border: 1px solid #28664f;
+    border-radius: 7px;
+    background: #28664f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.paper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e0e5df;
+}
+
+.paper h1 {
+    margin: 0 0 7px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.subtitle {
+    margin: 0 0 24px;
+    text-align: center;
+    color: #68776c;
+    font-size: 11px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th,
+td {
+    border: 1px solid #555;
+    padding: 7px 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background: #f3f4f0;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+td {
+    height: 38px;
+    font-size: 11px;
+}
+
+td:first-child {
+    width: 16%;
+    text-align: left;
+}
+
+.kode {
+    font-weight: 600;
+}
+
+.check {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.signature img {
+    max-width: 85px;
+    max-height: 35px;
+    object-fit: contain;
+}
+
+.empty {
+    height: 60px;
+    text-align: center;
+    color: #777;
+}
+
+@page {
+    size: A4 landscape;
+    margin: 10mm;
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .print-toolbar {
+        display: none !important;
+    }
+
+    .paper {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .paper h1 {
+        font-size: 14px;
+    }
+
+    .subtitle {
+        margin-bottom: 12px;
+    }
+
+    th,
+    td {
+        padding: 5px 3px;
+    }
+
+    tr {
+        break-inside: avoid;
+    }
+}

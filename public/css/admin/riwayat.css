@@ -1,0 +1,516 @@
+/* =========================================
+   FIX LAYOUT SIDEBAR DAN KONTEN RIWAYAT
+========================================= */
+
+.app-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.riwayat-page {
+    position: relative;
+    width: calc(100% - 246px);
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: 246px;
+    padding: 35px 30px;
+    box-sizing: border-box;
+    color: var(--text, #405047);
+}
+
+.riwayat-heading {
+    margin-bottom: 24px;
+}
+
+.riwayat-eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--green-700, #52745c);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.riwayat-heading h1 {
+    margin: 0 0 8px;
+    color: var(--green-900, #314236);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.riwayat-heading p {
+    margin: 0;
+    color: #7b887e;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Statistik mengikuti kartu dashboard */
+
+.riwayat-stats {
+    margin-bottom: 26px;
+}
+
+.riwayat-stats .stat-card {
+    min-width: 0;
+}
+
+.riwayat-stats .stat-info {
+    min-width: 0;
+}
+
+.riwayat-stats .stat-info > span {
+    color: #748477;
+    font-size: 11px;
+}
+
+.riwayat-stats .stat-info h3 {
+    margin: 10px 0 6px;
+    color: var(--green-900, #314236);
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.riwayat-stats .stat-info small {
+    color: #89958b;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.riwayat-stats .stat-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #edf3ed;
+    color: var(--green-800, #405e49);
+    font-size: 20px;
+}
+
+/* Panel menggunakan gaya dashboard */
+
+.riwayat-panel {
+    margin-bottom: 26px;
+    overflow: hidden;
+}
+
+.riwayat-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border, #e3e9e2);
+}
+
+.riwayat-panel-header h2 {
+    margin: 0 0 7px;
+    color: var(--green-900, #314236);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.riwayat-panel-header p {
+    margin: 0;
+    color: #839087;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.riwayat-total {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #edf3ed;
+    color: var(--green-800, #405e49);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* Tabel */
+
+.riwayat-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.riwayat-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 12px;
+}
+
+.riwayat-table thead {
+    background: #faf9f6;
+}
+
+.riwayat-table th {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border, #e3e9e2);
+    color: #748477;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.riwayat-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e9eee9;
+    color: #405047;
+    vertical-align: middle;
+}
+
+.riwayat-table tbody tr:nth-child(even) {
+    background: #f7f9f7;
+}
+
+.riwayat-table tbody tr:hover {
+    background: #f0f6f1;
+}
+
+.riwayat-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.riwayat-table td strong {
+    display: block;
+    color: #34443a;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.riwayat-subtext {
+    display: block;
+    margin-top: 4px;
+    color: #839087;
+    font-size: 10px;
+}
+
+.riwayat-item {
+    line-height: 1.8;
+}
+
+.riwayat-muted {
+    color: #89958b;
+    font-size: 11px;
+}
+
+.riwayat-number {
+    color: var(--green-800, #405e49);
+    font-weight: 600;
+}
+
+.riwayat-empty {
+    padding: 38px 16px !important;
+    color: #839087 !important;
+    text-align: center;
+}
+
+/* Label status */
+
+.riwayat-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-selesai {
+    border-color: #c2dfcc;
+    background: #e5f2e9;
+    color: #397453;
+}
+
+.status-berjalan {
+    border-color: #cbdce8;
+    background: #e7eff5;
+    color: #3f6b8c;
+}
+
+.status-ditolak {
+    border-color: #f3c9c5;
+    background: #fbeceb;
+    color: #b7473d;
+}
+
+.status-menunggu {
+    border-color: #ecd4a8;
+    background: #f8efde;
+    color: #a97625;
+}
+
+.status-lain {
+    border-color: #dfe7e0;
+    background: #f1f3f0;
+    color: #66746a;
+}
+
+/* Pagination */
+
+.riwayat-pagination {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border, #e3e9e2);
+}
+
+.riwayat-pagination nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.riwayat-pagination nav > div:last-child {
+    display: flex;
+    gap: 5px;
+}
+
+.riwayat-pagination a,
+.riwayat-pagination span[aria-current] span,
+.riwayat-pagination button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 5px 10px;
+    border: 1px solid var(--border, #e3e9e2);
+    border-radius: 9px;
+    background: #fff;
+    color: #52685a;
+    font-size: 11px;
+}
+
+.riwayat-pagination span[aria-current] span {
+    border-color: var(--green-800, #405e49);
+    background: var(--green-800, #405e49);
+    color: #fff;
+}
+
+/* Responsif */
+
+@media (max-width: 1100px) {
+    .riwayat-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .riwayat-heading h1 {
+        font-size: 23px;
+    }
+
+    .riwayat-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px;
+    }
+
+    .riwayat-table {
+        min-width: 760px;
+    }
+
+    .riwayat-pagination nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   RESPONSIVE FIX - HALAMAN RIWAYAT
+========================================= */
+
+/* Pastikan ukuran elemen konsisten */
+* {
+    box-sizing: border-box;
+}
+
+.app-layout {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* DESKTOP */
+.riwayat-page {
+    width: calc(100% - 246px);
+    margin-left: 246px;
+    min-width: 0;
+    padding: 35px 30px;
+}
+
+/* LAPTOP DAN TABLET */
+@media (max-width: 1200px) {
+    .riwayat-page {
+        width: calc(100% - 220px);
+        margin-left: 220px;
+        padding: 30px 24px;
+    }
+
+    .riwayat-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+/* TABLET DAN HP */
+@media (max-width: 760px) {
+
+    /* Sidebar mengecil menjadi ikon */
+    .sidebar {
+        width: 68px;
+        min-width: 68px;
+        padding: 18px 8px;
+        align-items: center;
+    }
+
+    /* Konten mengikuti ukuran sidebar */
+    .riwayat-page {
+        width: calc(100% - 68px);
+        margin-left: 68px;
+        padding: 24px 16px;
+        min-width: 0;
+    }
+
+    /* Heading */
+    .riwayat-heading {
+        margin-bottom: 20px;
+    }
+
+    .riwayat-heading h1 {
+        font-size: 23px;
+    }
+
+    .riwayat-heading p {
+        font-size: 11px;
+    }
+
+    /* Statistik */
+    .riwayat-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .riwayat-stats .stat-card {
+        min-width: 0;
+        padding: 15px;
+    }
+
+    .riwayat-stats .stat-info h3 {
+        font-size: 23px;
+    }
+
+    .riwayat-stats .stat-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    /* Panel */
+    .riwayat-panel {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .riwayat-panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    /* Tabel tetap bisa digeser */
+    .riwayat-table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .riwayat-table {
+        min-width: 760px;
+    }
+
+    /* Pagination */
+    .riwayat-pagination {
+        padding: 14px;
+    }
+
+    .riwayat-pagination nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* HP KECIL */
+@media (max-width: 480px) {
+
+    .riwayat-page {
+        padding: 20px 12px;
+    }
+
+    .riwayat-heading h1 {
+        font-size: 21px;
+    }
+
+    .riwayat-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .riwayat-stats .stat-card {
+        padding: 14px;
+    }
+
+    .riwayat-panel-header h2 {
+        font-size: 15px;
+    }
+
+    .riwayat-panel-header p {
+        font-size: 10px;
+    }
+
+    .riwayat-total {
+        font-size: 9px;
+    }
+
+    .riwayat-pagination a,
+    .riwayat-pagination span[aria-current] span,
+    .riwayat-pagination button {
+        min-width: 28px;
+        min-height: 30px;
+        padding: 5px 8px;
+    }
+}
+
+/* =========================================
+   FIX MOBILE - STATISTIK 2 KOLOM
+========================================= */
+
+@media (max-width: 760px) {
+    .riwayat-stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px;
+    }
+
+    .riwayat-stats .stat-card {
+        min-width: 0;
+        width: 100%;
+    }
+}

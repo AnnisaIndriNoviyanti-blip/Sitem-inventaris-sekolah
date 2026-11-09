@@ -1,0 +1,866 @@
+
+/* ==========================================
+   INVENTARIS BARANG RUSAK - SISKO
+   ========================================== */
+
+.inventory-damage-content {
+    padding-bottom: 40px;
+}
+
+.inventory-top-title {
+    color: var(--admin-text, #263342);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Heading */
+
+.inventory-heading-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.inventory-add-btn {
+    background: #2d684f !important;
+    color: #fff !important;
+    border-color: #2d684f !important;
+}
+
+.inventory-add-btn:hover {
+    background: #24563f !important;
+}
+
+.inventory-export-btn {
+    background: #e7f1eb !important;
+    color: #286849 !important;
+    border-color: #cddfd2 !important;
+}
+
+/* Tabs */
+
+.inventory-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 25px 0;
+    padding: 5px;
+    width: fit-content;
+    background: #f0f3f0;
+    border-radius: 12px;
+}
+
+.inventory-tabs a {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 17px;
+    border-radius: 9px;
+    color: #718174;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.inventory-tabs a:hover {
+    color: #2d684f;
+}
+
+.inventory-tabs a.active {
+    background: #fff;
+    color: #2d684f;
+    box-shadow: 0 2px 7px rgba(0,0,0,.05);
+}
+
+/* Alert */
+
+.inventory-alert {
+    padding: 14px 17px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.inventory-alert.success {
+    background: #e7f3eb;
+    color: #286849;
+    border: 1px solid #c9e2d2;
+}
+
+.inventory-alert.error {
+    background: #f9e9e7;
+    color: #a44b40;
+    border: 1px solid #efd0cb;
+}
+
+/* Statistik */
+
+.inventory-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.inventory-stat {
+    padding: 21px;
+    background: #fff;
+    border: 1px solid #e1e9e3;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(35,60,45,.04);
+}
+
+.inventory-stat span {
+    display: block;
+    color: #77877b;
+    font-size: 11px;
+}
+
+.inventory-stat strong {
+    display: block;
+    margin-top: 12px;
+    color: #263b30;
+    font: 700 28px "Playfair Display", serif;
+}
+
+/* Filter */
+
+.inventory-filter {
+    display: grid;
+    grid-template-columns: minmax(180px,1fr) 190px 190px auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 17px;
+    margin-bottom: 25px;
+    background: #fff;
+    border: 1px solid #e0e8e3;
+    border-radius: 16px;
+}
+
+.inventory-filter input,
+.inventory-filter select {
+    width: 100%;
+    min-width: 0;
+    height: 43px;
+    padding: 0 13px;
+    border: 1px solid #dce5df;
+    border-radius: 10px;
+    background: #fff;
+    color: #34473b;
+    font: 12px "DM Sans", sans-serif;
+    outline: none;
+}
+
+.inventory-filter input:focus,
+.inventory-filter select:focus {
+    border-color: #2d684f;
+}
+
+/* List */
+
+.inventory-damage-list {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 17px;
+}
+
+.inventory-damage-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #e0e8e3;
+    border-radius: 16px;
+    background: #fff;
+    transition: .2s;
+}
+
+.inventory-damage-card:hover {
+    box-shadow: 0 7px 20px rgba(35,60,45,.06);
+}
+
+.inventory-damage-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.inventory-code {
+    color: #718b7b;
+    font-size: 11px;
+}
+
+.inventory-damage-top h3 {
+    margin: 7px 0;
+    color: #27382e;
+    font: 700 19px "Playfair Display", serif;
+    overflow-wrap: anywhere;
+}
+
+.inventory-category {
+    color: #829187;
+    font-size: 11px;
+}
+
+.inventory-level {
+    flex-shrink: 0;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.inventory-level.light {
+    background: #fff3dc;
+    color: #9a6a21;
+}
+
+.inventory-level.heavy {
+    background: #f9e5e2;
+    color: #a4473c;
+}
+
+/* Catatan */
+
+.inventory-damage-description {
+    margin-top: 19px;
+    padding: 14px;
+    background: #f5f8f6;
+    border-radius: 11px;
+}
+
+.inventory-damage-description strong {
+    color: #426451;
+    font-size: 10px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.inventory-damage-description p {
+    margin: 8px 0 0;
+    color: #66766c;
+    font-size: 12px;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Informasi */
+
+.inventory-damage-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px 16px;
+    margin: 15px 0;
+    color: #7c8b81;
+    font-size: 10px;
+}
+
+/* Foto */
+
+.inventory-photo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    color: #2d684f;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.inventory-photo img {
+    width: 90px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e0e8e3;
+}
+
+.inventory-photo a {
+    display: block;
+}
+
+/* Footer kartu */
+
+.inventory-damage-footer {
+    margin-top: 17px;
+    padding-top: 13px;
+    border-top: 1px solid #edf0ed;
+    color: #718277;
+    font-size: 10px;
+}
+
+.inventory-damage-footer strong {
+    color: #a45d40;
+}
+
+/* Form */
+
+.inventory-form-panel {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e0e8e3;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(35,60,45,.04);
+    overflow: hidden;
+}
+
+.inventory-form-heading {
+    padding: 24px 28px;
+    border-bottom: 1px solid #e8eee9;
+}
+
+.inventory-form-heading h2 {
+    margin: 0;
+    color: #293a30;
+    font: 700 21px "Playfair Display", serif;
+}
+
+.inventory-form-heading p {
+    margin: 8px 0 0;
+    color: #7b8980;
+    font-size: 12px;
+}
+
+.inventory-damage-form {
+    padding: 27px 28px;
+}
+
+.inventory-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+.inventory-form-group label {
+    color: #364c3d;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.inventory-form-group label span {
+    color: #bd604e;
+}
+
+.inventory-form-group input,
+.inventory-form-group select,
+.inventory-form-group textarea {
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 14px;
+    border: 1px solid #dce5df;
+    border-radius: 10px;
+    background: #fff;
+    color: #34473b;
+    font: 13px "DM Sans", sans-serif;
+    outline: none;
+}
+
+.inventory-form-group textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.inventory-form-group input:focus,
+.inventory-form-group select:focus,
+.inventory-form-group textarea:focus {
+    border-color: #2d684f;
+    box-shadow: 0 0 0 3px rgba(45,104,79,.07);
+}
+
+.form-help {
+    color: #829087;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.form-error {
+    color: #bb5045;
+    font-size: 11px;
+}
+
+.inventory-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 17px;
+}
+
+.inventory-warning {
+    padding: 16px;
+    margin: 5px 0 22px;
+    border: 1px solid #eddfbd;
+    border-radius: 12px;
+    background: #fff8e9;
+}
+
+.inventory-warning strong {
+    color: #9a7029;
+    font-size: 12px;
+}
+
+.inventory-warning p {
+    margin: 7px 0 0;
+    color: #8a7752;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.inventory-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 18px;
+    border-top: 1px solid #edf0ed;
+}
+
+.inventory-form-actions button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* Preview foto */
+
+.foto-preview img {
+    max-width: 220px;
+    max-height: 180px;
+    object-fit: contain;
+    border: 1px solid #dce5df;
+    border-radius: 12px;
+}
+
+/* Responsive */
+
+@media(max-width: 1100px) {
+    .inventory-filter {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .inventory-damage-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+    .inventory-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-filter {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-heading-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .inventory-tabs {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .inventory-tabs a {
+        white-space: nowrap;
+    }
+
+    .inventory-damage-form {
+        padding: 20px;
+    }
+
+    .inventory-form-heading {
+        padding: 20px;
+    }
+
+    .inventory-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .inventory-form-actions > * {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================
+   PERBAIKAN FORM TAMBAH BARANG RUSAK
+   ========================================== */
+
+/* Memberikan jarak antara label dan kolom */
+.inventory-form-group {
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+/* Memberikan ruang di dalam kolom input */
+.inventory-form-group input,
+.inventory-form-group select,
+.inventory-form-group textarea {
+    padding: 13px 16px;
+    border: 1px solid #dce5df;
+    border-radius: 12px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+}
+
+/* Jarak label dengan kolom */
+.inventory-form-group label {
+    margin-bottom: 2px;
+    line-height: 1.5;
+}
+
+/* Jarak keterangan bantuan */
+.inventory-form-group .form-help {
+    margin-top: 2px;
+    line-height: 1.6;
+}
+
+/* Tombol simpan dan batal */
+.inventory-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #edf0ed;
+}
+
+/* Memperbaiki bentuk tombol */
+.inventory-form-actions .damage-btn {
+    min-height: 46px;
+    padding: 0 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 12px !important;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+/* Tombol simpan */
+.inventory-form-actions .inventory-add-btn {
+    background: #2d684f !important;
+    color: #fff !important;
+    border: 1px solid #2d684f !important;
+    border-radius: 12px !important;
+}
+
+.inventory-form-actions .inventory-add-btn:hover {
+    background: #24563f !important;
+    transform: translateY(-1px);
+}
+
+/* Tombol batal */
+.inventory-form-actions .secondary {
+    background: #fff !important;
+    color: #627568 !important;
+    border: 1px solid #dce5df !important;
+    border-radius: 12px !important;
+}
+
+.inventory-form-actions .secondary:hover {
+    background: #f5f8f6 !important;
+}
+
+/* Tampilan tombol ketika dinonaktifkan */
+.inventory-form-actions button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Jarak antara kolom tanggal dan tingkat kerusakan */
+.inventory-form-row {
+    gap: 22px;
+}
+
+/* Jarak antarbaris form */
+.inventory-damage-form {
+    padding: 30px;
+}
+
+@media (max-width: 650px) {
+    .inventory-form-actions {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .inventory-form-actions .damage-btn {
+        width: 100%;
+    }
+
+    .inventory-damage-form {
+        padding: 20px;
+    }
+}
+
+/* ==========================================
+   UPDATE PENANGANAN DAN FOTO PERBAIKAN
+   ========================================== */
+
+.inventory-repair-photo {
+    margin-top: 20px;
+    padding: 15px;
+    background: #edf6f0;
+    border: 1px solid #d2e6d8;
+    border-radius: 13px;
+}
+
+.repair-photo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.repair-photo-title strong {
+    color: #286849;
+    font-size: 12px;
+}
+
+.repair-photo-title span {
+    color: #718174;
+    font-size: 10px;
+}
+
+.inventory-repair-photo img {
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #cddfd2;
+}
+
+/* Form update */
+
+.inventory-repair-form {
+    margin-top: 20px;
+    padding: 18px;
+    background: #f8faf8;
+    border: 1px solid #e0e8e3;
+    border-radius: 14px;
+}
+
+.repair-form-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 17px;
+}
+
+.repair-form-heading strong {
+    color: #344b3b;
+    font-size: 13px;
+}
+
+.repair-form-heading span {
+    color: #829087;
+    font-size: 10px;
+}
+
+.repair-form-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.repair-status-field,
+.repair-photo-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.repair-status-field label,
+.repair-photo-field label {
+    color: #364c3d;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.repair-status-select,
+.repair-photo-field input {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #dce5df;
+    border-radius: 10px;
+    background: #fff;
+    color: #34473b;
+    font: 11px "DM Sans", sans-serif;
+}
+
+.repair-photo-field small {
+    color: #829087;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.repair-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 19px;
+    padding-top: 15px;
+    border-top: 1px solid #e5ebe6;
+}
+
+.repair-note {
+    color: #77877b;
+    font-size: 10px;
+}
+
+.repair-form-footer .damage-btn {
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: 11px !important;
+}
+
+/* Status selesai */
+
+.inventory-repair-complete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid #cce3d3;
+    background: #edf6f0;
+    border-radius: 13px;
+}
+
+.inventory-repair-complete strong {
+    color: #286849;
+    font-size: 12px;
+}
+
+.inventory-repair-complete p {
+    margin: 5px 0 0;
+    color: #718174;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.repair-available-badge {
+    flex-shrink: 0;
+    padding: 8px 11px;
+    border-radius: 20px;
+    background: #d9eee1;
+    color: #286849;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* Responsive */
+
+@media(max-width: 650px) {
+    .repair-form-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .repair-form-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .repair-form-footer button {
+        width: 100%;
+    }
+
+    .inventory-repair-complete {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+.repair-status-field textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px 14px;
+    border: 1px solid #dce5df;
+    border-radius: 10px;
+    background: #fff;
+    color: #34473b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.repair-status-field textarea:focus {
+    outline: none;
+    border-color: #2d684f;
+}
+
+/* ==========================================
+   TOMBOL EXPORT PDF
+   ========================================== */
+
+.inventory-export-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 24px;
+    flex-wrap: wrap;
+}
+
+.inventory-export-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 0 19px;
+
+    background: #2d684f;
+    color: #fff;
+
+    border: 1px solid #2d684f;
+    border-radius: 12px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.inventory-export-btn:hover {
+    background: #24563f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(45,104,79,.15);
+}
+
+.inventory-export-btn span {
+    font-size: 16px;
+}
+
+@media(max-width: 650px) {
+    .inventory-export-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .inventory-export-btn {
+        width: 100%;
+    }
+}
